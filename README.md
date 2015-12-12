@@ -5,38 +5,38 @@ deployed to: <br />
 
 ###### Build	artifacts
 ```
-  web-3678.tar.gz <br />
-  base-3678.tar.gz <br />
-  map-3678.tar.gz <br />
+  web-3678.tar.gz
+  base-3678.tar.gz
+  map-3678.tar.gz
 ```
 ###### Configuration	file
 ```
   {
-    "web":{
-      "hosts":[
-        "devops-test-web1.company.com",
-        "devops-test-web2.company.com",
-        "devops-test-web3.company.com"
-      ]
-    },
-    "base":{
-      "hosts":[
-        "devops-test-base1.company.com",
-        "devops-test-base2.company.com"
-        ]
-    },
-    "map":{
-      "hosts":[
-        "devops-test-map1.company.com",
-        "devops-test-map2.company.com"
-      ]
-    }
+      "web":{
+            "hosts":[
+                    "devops-test-web1.company.com",
+                    "devops-test-web2.company.com",
+                    "devops-test-web3.company.com"
+            ]
+      },
+      "base":{
+            "hosts":[
+                    "devops-test-base1.company.com",
+                    "devops-test-base2.company.com"
+            ]
+      },
+      "map":{
+            "hosts":[
+                    "devops-test-map1.company.com",
+                    "devops-test-map2.company.com"
+            ]
+      }
   }
 ```
 <br /> <br />
 1. Deployment script must accept path to the configuration file, build version and path to 
-the folder containing tarballs as command line arguments.  <br />
-2. All target servers are accessible by SSH.  <br />
-3. The deployment script will be launched by a user with privileges sufficient to connect and make changes on target servers.  <br />
-Content of the tarballs should be deployed to folders named as follows: ‘/mnt/company/<artifact>/’.  <br />
-4. If possible, make it easier to rollback to the previous version of software. <br />
+the folder containing tarballs as command line arguments.
+2. All target servers are accessible by SSH.
+3. The deployment script will be launched by a user with privileges sufficient to connect and make changes on target servers.
+Content of the tarballs should be deployed to folders named as follows: ‘/mnt/company/<artifact>/’.
+4. If possible, make it easier to rollback to the previous version of software.
