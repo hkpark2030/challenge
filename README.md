@@ -1,15 +1,15 @@
 This task is to facilitate deployment of the software into a cluster of Linux
 servers. Each build consists of a set of tarballs named as ‘<artifact>-<Version#>.tar.gz’
 accompanied by a JSON configuration that describes which hosts each artifact should be 
-deployed to:
+deployed to: <br />
 
 ###### Build	artifacts
-web-3678.tar.gz
-base-3678.tar.gz
-map-3678.tar.gz
+web-3678.tar.gz <br />
+base-3678.tar.gz <br />
+map-3678.tar.gz <br />
 
 ###### Configuration	file
-{code}
+`
 {
 
 "web":{
@@ -35,10 +35,11 @@ map-3678.tar.gz
 }
 
 }
-{code}
+`
+ <br /> <br />
 Deployment script must accept path to the configuration file, build version and path to 
-the folder containing tarballs as command line arguments. All target servers are 
-accessible by SSH. The deployment script will be launched by a user with privileges 
-sufficient to connect and make changes on target servers. Content of the tarballs should 
-be deployed to folders named as follows: ‘/mnt/company/<artifact>/’. If possible, make it 
-easier to rollback to the previous version of software.
+the folder containing tarballs as command line arguments.  <br />
+All target servers are accessible by SSH.  <br />
+The deployment script will be launched by a user with privileges sufficient to connect and make changes on target servers.  <br />
+Content of the tarballs should be deployed to folders named as follows: ‘/mnt/company/<artifact>/’.  <br />
+If possible, make it easier to rollback to the previous version of software. <br />
