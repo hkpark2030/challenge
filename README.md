@@ -36,5 +36,5 @@ deployed to: <br />
 * Deployment script must accept path to the configuration file, build version and path to the folder containing tarballs as command line arguments.
 * All target servers are accessible by SSH.
 * The deployment script will be launched by a user with privileges sufficient to connect and make changes on target servers.
-* Content of the tarballs should be deployed to folders named as follows: ‘/mnt/company/<artifact>/’.
+* Content of the tarballs should be deployed to folders named as follows: `/mnt/company/<artifact>/`.
 * If possible, make it easier to rollback to the previous version of software.
