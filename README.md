@@ -4,35 +4,35 @@ accompanied by a JSON configuration that describes which hosts each artifact sho
 deployed to: <br />
 
 ###### Build	artifacts
-<pre><code>
-web-3678.tar.gz <br />
-base-3678.tar.gz <br />
-map-3678.tar.gz <br />
-</pre></code>
+```
+  web-3678.tar.gz <br />
+  base-3678.tar.gz <br />
+  map-3678.tar.gz <br />
+```
 ###### Configuration	file
-<pre><code>
-{
-"web":{
-"hosts":[
-"devops-test-web1.company.com",
-"devops-test-web2.company.com",
-"devops-test-web3.company.com"
-]
-},
-"base":{
-"hosts":[
-"devops-test-base1.company.com",
-"devops-test-base2.company.com"
-]
-},
-"map":{
-"hosts":[
-"devops-test-map1.company.com",
-"devops-test-map2.company.com"
-]
-}
-}
-</pre></code>
+```
+  {
+    "web":{
+      "hosts":[
+        "devops-test-web1.company.com",
+        "devops-test-web2.company.com",
+        "devops-test-web3.company.com"
+      ]
+    },
+    "base":{
+      "hosts":[
+        "devops-test-base1.company.com",
+        "devops-test-base2.company.com"
+        ]
+    },
+    "map":{
+      "hosts":[
+        "devops-test-map1.company.com",
+        "devops-test-map2.company.com"
+      ]
+    }
+  }
+```
 <br /> <br />
 1. Deployment script must accept path to the configuration file, build version and path to 
 the folder containing tarballs as command line arguments.  <br />
