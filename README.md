@@ -9,7 +9,7 @@ base-3678.tar.gz <br />
 map-3678.tar.gz <br />
 
 ###### Configuration	file
-`
+<pre><code>
 {
 
 "web":{
@@ -35,11 +35,11 @@ map-3678.tar.gz <br />
 }
 
 }
-`
+</pre></code>
  <br /> <br />
-Deployment script must accept path to the configuration file, build version and path to 
+1. Deployment script must accept path to the configuration file, build version and path to 
 the folder containing tarballs as command line arguments.  <br />
-All target servers are accessible by SSH.  <br />
-The deployment script will be launched by a user with privileges sufficient to connect and make changes on target servers.  <br />
+2. All target servers are accessible by SSH.  <br />
+3. The deployment script will be launched by a user with privileges sufficient to connect and make changes on target servers.  <br />
 Content of the tarballs should be deployed to folders named as follows: ‘/mnt/company/<artifact>/’.  <br />
-If possible, make it easier to rollback to the previous version of software. <br />
+4. If possible, make it easier to rollback to the previous version of software. <br />
