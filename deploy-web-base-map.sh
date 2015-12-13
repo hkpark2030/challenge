@@ -13,7 +13,7 @@
 # 1. Install jq for JSON file parsing
 bash install-jq.sh
 
-# 2. Accept path to config file, build number, path to tar ball
+# 2. Accept path to config file, build version, path to tar ball
 read -p "Enter the path to the config file followed by [ENTER]: " configpath
 read -p "Enter the build version followed by [ENTER]: " buildversion
 read -p "Enter the path to the tarball followed by [ENTER]: " tarballpath
