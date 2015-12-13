@@ -1,0 +1,23 @@
+{
+     "web":{
+           "hosts":[
+                   "devops-test-web1.company.com",
+                   "devops-test-web2.company.com",
+                   "devops-test-web3.company.com"
+           ]
+     },
+
+     "base":{
+           "hosts":[
+                   "devops-test-base1.company.com",
+                   "devops-test-base2.company.com"
+           ]
+     },
+
+     "map":{
+           "hosts":[
+                   "devops-test-map1.company.com",
+                   "devops-test-map2.company.com"
+           ]
+     }
+}
