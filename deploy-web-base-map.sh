@@ -25,6 +25,7 @@ do
         gnome-terminal -x sh -c "echo $host \
         scp $tarballpath/web-$buildversion.tar.gz patrick@host:$tarballpath/ \
         ssh patrick@$host \
+        cd $tarballpath
         tar -xzf web-$buildversion.tar.gz \
         cd web-$buildversion \
         ./configure \
@@ -38,6 +39,7 @@ do
         gnome-terminal -x sh -c "echo $host \
         scp $tarballpath/base-$buildversion.tar.gz patrick@host:$tarballpath/ \
         ssh patrick@$host \
+        cd $tarballpath
         tar -xzf base-$buildversion.tar.gz \
         cd base-$buildversion \
         ./configure \
@@ -51,6 +53,7 @@ do
         gnome-terminal -x sh -c "echo $host \
         scp $tarballpath/map-$buildversion.tar.gz patrick@host:$tarballpath/ \
         ssh patrick@$host \
+        cd $tarballpath
         tar -xzf map-$buildversion.tar.gz \
         cd map-$buildversion \
         ./configure \
