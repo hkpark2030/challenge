@@ -1,40 +1,59 @@
 #!/bin/bash
 
-# Added user account to visudo for no password input during run
+# 0.1. Added user account to visudo for no password input during run
 #  $sudo visudo
 #  patrick ALL=(ALL:ALL) NOPASSWD: ALL
 
-# Accept path to config file, build number, path to tar ball
-  config-path=
-  build-number=
-  tarball-path=
+# 0.2. Clone the bash scripts from the Git repository
+# $git clone https://github.com/hkpark2030/challenge.git
+# $cd challenge
+# $bash start-deployment.sh
 
-# Download tar.gz, build, and install them to each server
-  sudo apt-get update
-  sudo apt-get install -y build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip
-  sudo apt-get install -y asciidoc xmlto docbook2x
-  wget https://github.com/git/git/archive/v2.6.3.zip -O git.zip
-  unzip git.zip
-  cd git-*
-  make prefix=/usr/local all
-  sudo make prefix=/usr/local install
 
-  ssh patrick@devops-test-web1.company.com
-  bash deploy-web.sh
-  ssh patrick@devops-test-web2.company.com
-  bash deploy-web.sh
-  ssh patrick@devops-test-web3.company.com
-  bash deploy-web.sh
-  
-  ssh patrick@devops-test-base1.company.com
-  bash deploy-base.sh
-  ssh patrick@devops-test-base2.company.com
-  bash deploy-web.sh
-  
-  ssh patrick@devops-test-map1.company.com
-  bash deploy-map.sh
-  ssh patrick@devops-test-map2.company.com
-  bash deploy-map.sh
-  
-  
-  
+# 1. Install jq for JSON file parsing
+bash install-jq.sh
+
+# 2. Accept path to config file, build number, path to tar ball
+read -p "Enter the path to the config file followed by [ENTER]: " configpath
+read -p "Enter the build number followed by [ENTER]: " buildnumber
+read -p "Enter the path to the tarball followed by [ENTER]: " tarballpath
+
+# 3. Parse config.json file to deploy each artifact to each server
+webhosts=$(cat $configpath/config.json | jq '.web.hosts[]')
+for host in $webhosts
+do
+        gnome-terminal -x sh -c "echo $host \
+        scp $tarballpath/web-$buildversion.tar.gz patrick@host:$tarballpath/ \
+        ssh patrick@$host \
+        tar -xzf web-$buildversion.tar.gz \
+        cd web-$buildversion \
+        ./configure \
+        make \
+        sudo make install"
+done
+
+basehosts=$(cat $configpath/config.json | jq '.base.hosts[]')
+for host in $basehosts
+do
+        gnome-terminal -x sh -c "echo $host \
+        scp $tarballpath/base-$buildversion.tar.gz patrick@host:$tarballpath/ \
+        ssh patrick@$host \
+        tar -xzf base-$buildversion.tar.gz \
+        cd base-$buildversion \
+        ./configure \
+        make \
+        sudo make install"
+done
+
+maphosts=$(cat $configpath/config.json | jq '.map.hosts[]')
+for host in $maphosts
+do
+        gnome-terminal -x sh -c "echo $host \
+        scp $tarballpath/map-$buildversion.tar.gz patrick@host:$tarballpath/ \
+        ssh patrick@$host \
+        tar -xzf map-$buildversion.tar.gz \
+        cd map-$buildversion \
+        ./configure \
+        make \
+        sudo make install"
+done
