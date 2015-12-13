@@ -23,7 +23,7 @@ webhosts=$(cat $configpath/config.json | jq '.web.hosts[]')
 for host in $webhosts
 do
         gnome-terminal -x sh -c "echo $host \
-        scp $tarballpath/web-$buildversion.tar.gz patrick@host:/mnt/company/ \
+        scp $tarballpath/web-$buildversion.tar.gz patrick@$host:/mnt/company/ \
         ssh patrick@$host \
         cd /mnt/company/ \
         tar -xzf web-$buildversion.tar.gz \
@@ -37,7 +37,7 @@ basehosts=$(cat $configpath/config.json | jq '.base.hosts[]')
 for host in $basehosts
 do
         gnome-terminal -x sh -c "echo $host \
-        scp $tarballpath/base-$buildversion.tar.gz patrick@host:/mnt/company/ \
+        scp $tarballpath/base-$buildversion.tar.gz patrick@$host:/mnt/company/ \
         ssh patrick@$host \
         cd /mnt/company/ \
         tar -xzf base-$buildversion.tar.gz \
@@ -51,7 +51,7 @@ maphosts=$(cat $configpath/config.json | jq '.map.hosts[]')
 for host in $maphosts
 do
         gnome-terminal -x sh -c "echo $host \
-        scp $tarballpath/map-$buildversion.tar.gz patrick@host:/mnt/company/ \
+        scp $tarballpath/map-$buildversion.tar.gz patrick@$host:/mnt/company/ \
         ssh patrick@$host \
         cd /mnt/company/ \
         tar -xzf map-$buildversion.tar.gz \
