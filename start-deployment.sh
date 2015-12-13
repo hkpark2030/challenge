@@ -15,7 +15,7 @@ bash install-jq.sh
 
 # 2. Accept path to config file, build number, path to tar ball
 read -p "Enter the path to the config file followed by [ENTER]: " configpath
-read -p "Enter the build number followed by [ENTER]: " buildnumber
+read -p "Enter the build version followed by [ENTER]: " buildversion
 read -p "Enter the path to the tarball followed by [ENTER]: " tarballpath
 
 # 3. Parse config.json file to deploy each artifact to each server
